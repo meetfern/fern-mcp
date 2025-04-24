@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 set -euo pipefail
-REPO_BASE="https://raw.githubusercontent.com/meetfern/fern-mcp/main/bin"
+REPO_BASE="https://github.com/meetfern/fern-mcp/raw/refs/heads/main/bin"
 ARCH="$(uname -m)"
 case "$ARCH" in
-  arm64) BIN_NAME="fern-exograph-mcp-bridge-darwin-arm64" ;;
-  x86_64) BIN_NAME="fern-exograph-mcp-bridge-darwin-amd64" ;;
+  arm64) BIN_NAME="fern-mcp-bridge-darwin-arm64" ;;
+  x86_64) BIN_NAME="fern-mcp-bridge-darwin-amd64" ;;
   *) echo "Unsupported architecture: $ARCH"; exit 1 ;;
 esac
 TARGET_DIR="$HOME/.fern/bin"
 mkdir -p "$TARGET_DIR"
-TARGET="$TARGET_DIR/fern-exograph-mcp-bridge"
+TARGET="$TARGET_DIR/fern-mcp-bridge"
 curl -fsSL "$REPO_BASE/$BIN_NAME" -o "$TARGET"
 chmod +x "$TARGET"
 CONFIG_PATH="$HOME/Library/Application Support/Claude/claude_desktop_config.json"

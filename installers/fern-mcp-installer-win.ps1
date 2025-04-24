@@ -1,5 +1,5 @@
 $ErrorActionPreference = 'Stop'
-$repoBase = 'https://raw.githubusercontent.com/meetfern/fern-mcp/main/bin'
+$repoBase = 'https://github.com/meetfern/fern-mcp/raw/refs/heads/main/bin'
 $arch = ([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture).ToString().ToLower()
 switch ($arch) {
   'arm64' { $binName = 'fern-exograph-mcp-bridge-windows-arm64.exe' }
