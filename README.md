@@ -2,12 +2,25 @@
 
 ## Download
 
-You can download the latest installer from the release page. 
+You can download the latest installer from the releases page:
 
 https://github.com/meetfern/fern-mcp/releases
 
+## Running the Installer
 
-## Local compilation
+- Open the downloaded `.dmg`
+- Open the installer app
+- Currently the app is unsigned so it needs to be enabled via system preferences
+
+The installer:
+
+- Downloads the appropriate binary for running the Fern MCP bridge
+- Installs it to `~/.fern/bin`
+- Updates the `Library/Application Support/Claude/claude_desktop_config.json`
+- Displays a success dialog box
+
+
+## Building locally
 
 
 ### Prerequisites
@@ -35,18 +48,4 @@ Final output: `dist/Fern-MCP-Installer.dmg`
 ```sh
 make clean
 ```
-
-## Running the Installer
-
-- User opens the `.dmg`
-- User double-clicks the installer `.app`
-- Currently the app is unsigned so the user needs to enable it in system preferences
-
-The installer:
-
-- Downloads the appropriate binary
-- Installs it to `~/.fern/bin`
-- Updates the `Library/Application Support/Claude/claude_desktop_config.json`
-- Displays a success dialog box
-
 
