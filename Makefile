@@ -44,5 +44,6 @@ clean:
 	rm -f dist/*.dmg
 	rm -f dist/*.temp.dmg
 
+# Usage: make release version=v0.1.1
 release:
-	scripts/release.sh $(VERSION)
+	scripts/release.sh $(version)
