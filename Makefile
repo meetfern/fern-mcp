@@ -34,7 +34,9 @@ bundle:
 	cp target/universal/fern-mcp-installer "$(APP_PATH)/Contents/MacOS/fern-mcp-installer"
 
 sign-app:
-	codesign --force --deep --sign - "$(APP_PATH)"
+ifdef SIGN_IDENTITY
+	codesign --force --deep --sign "$(SIGN_IDENTITY)" "$(APP_PATH)"
+endif
 
 dmg:
 	mkdir -p dist
@@ -42,7 +44,9 @@ dmg:
 	dmgbuild -s scripts/dmgbuild.py "$(APP_NAME)" "$(DMG_OUT)"
 
 sign-dmg:
-	codesign --force --sign - "$(DMG_OUT)"
+ifdef SIGN_IDENTITY
+	codesign --force --sign "$(SIGN_IDENTITY)" "$(DMG_OUT)"
+endif
 
 clean:
 	cargo clean
