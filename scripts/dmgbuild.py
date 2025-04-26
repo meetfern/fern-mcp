@@ -1,7 +1,10 @@
 application = 'Fern MCP Installer.app'
 volume_name = 'Fern MCP Installer'
 
-files = ["target/release/bundle/osx/Fern MCP Installer.app"]
+files = [
+  "target/release/bundle/osx/Fern MCP Installer.app",
+  "resources/instructions.txt"
+]
 
 format = 'UDZO'
 
@@ -9,6 +12,7 @@ size = None  # Auto-size
 
 icon_locations = {
     application: (100, 100),
+    "instructions.txt": (300, 100),
 }
 
 window_rect = ((50, 50), (500, 280))  # (origin_x, origin_y), (width, height)

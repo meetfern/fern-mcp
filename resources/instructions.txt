@@ -1,0 +1,17 @@
+Welcome to Fern MCP Installer
+
+How to Install:
+
+1. Open the file "Fern MCP Installer"
+
+2. A warning will appear – click "Done"
+
+3. Open System Settings → Privacy & Security
+
+4. Find the security section near the bottom
+
+5. Click "Open Anyway" next to "Fern MCP Installer"
+
+6. The installer will now run
+
+Thanks for using Fern!
