@@ -19,6 +19,9 @@ jobs:
           toolchain: stable
           profile: minimal
 
+      - name: Add x86_64 target
+        run: rustup target add x86_64-apple-darwin
+
       - name: Install cargo-bundle
         run: cargo install cargo-bundle
 
