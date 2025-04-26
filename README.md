@@ -1,4 +1,4 @@
-# Fern MCP Installer Setup
+# Fern MCP Installer
 
 ## Download
 
