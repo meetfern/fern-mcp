@@ -13,7 +13,14 @@ all:
 	make sign-dmg
 
 deps:
-	@which dmgbuild >/dev/null 2>&1 || { echo "Installing dmgbuild..."; pip3 install --user dmgbuild; }
+	@which dmgbuild >/dev/null 2>&1 || { \
+		if ! command -v pipx >/dev/null 2>&1; then \
+			echo "pipx is required but not installed. Install it with: brew install pipx && pipx ensurepath"; \
+			exit 1; \
+		fi; \
+		echo "Installing dmgbuild via pipx..."; \
+		pipx install dmgbuild; \
+	}
 
 bundle:
 	cargo build --release --target aarch64-apple-darwin
