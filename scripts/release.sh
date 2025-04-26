@@ -10,8 +10,6 @@ fi
 
 VERSION=$1
 
-git add .
-git commit -m "Prepare release $VERSION"
 git tag -a "$VERSION" -m "Release $VERSION"
 git push origin main --tags
 
