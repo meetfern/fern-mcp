@@ -16,7 +16,15 @@ deps:
 	@which dmgbuild >/dev/null 2>&1 || { echo "Installing dmgbuild..."; pip3 install --user dmgbuild; }
 
 bundle:
+	cargo build --release --target aarch64-apple-darwin
+	cargo build --release --target x86_64-apple-darwin
+	mkdir -p target/universal
+	lipo -create \
+		target/aarch64-apple-darwin/release/fern-mcp-installer \
+		target/x86_64-apple-darwin/release/fern-mcp-installer \
+		-output target/universal/fern-mcp-installer
 	cargo bundle --release
+	cp target/universal/fern-mcp-installer "$(APP_PATH)/Contents/MacOS/fern-mcp-installer"
 
 sign-app:
 	codesign --force --deep --sign - "$(APP_PATH)"

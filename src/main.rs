@@ -59,6 +59,13 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .expect("Could not find home directory")
         .join("Library/Application Support/Claude/claude_desktop_config.json");
 
+    if !config_path.parent().unwrap().exists() {
+        exit_with_error(
+            "Claude Desktop Not Found",
+            "The Claude Desktop configuration directory was not found. Are you sure Claude Desktop is installed?"
+        );
+    }
+
     let mut config: Value = if config_path.exists() {
         serde_json::from_str(&fs::read_to_string(&config_path)?)?
     } else {
