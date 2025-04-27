@@ -14,12 +14,6 @@ You can install Fern MCP directly from the terminal using the following command:
 curl -fsSL https://raw.githubusercontent.com/meetfern/fern-mcp/main/scripts/install.sh | bash
 ```
 
-Or you can download and run the binary directly:
-
-```sh
-curl -fsSL https://github.com/meetfern/fern-mcp/releases/latest/download/fern-mcp-installer -o /tmp/fern-mcp-installer && chmod +x /tmp/fern-mcp-installer && /tmp/fern-mcp-installer
-```
-
 ## Running the Installer
 
 - Open the downloaded `.dmg`
