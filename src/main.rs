@@ -75,8 +75,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     config["mcpServers"]["fern"] = json!({
         "command": target_path.to_string_lossy(),
         "args": [
-            "--api-endpoint", "http://api.meetfern.ai/mcp",
-            "--auth-endpoint", "http://meetfern.ai/v1/mcp/login",
+            "--api-endpoint", "https://api.meetfern.ai/mcp",
+            "--auth-endpoint", "https://app.meetfern.ai/v1/mcp/login",
             "--redirect-url", "http://localhost:31310/auth"
         ]
     });
