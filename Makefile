@@ -1,9 +1,9 @@
 APP_NAME=Fern MCP Installer
 BUNDLE_DIR=target/release/bundle/osx
-DMG_OUT=dist/Fern-MCP-Installer.dmg
+DMG_OUT=dist/fern-mcp-installer.dmg
 APP_PATH=$(BUNDLE_DIR)/$(APP_NAME).app
 
-.PHONY: all deps bundle sign-app dmg sign-dmg clean release
+.PHONY: all deps bundle sign-app dmg sign-dmg clean release executable
 
 all:
 	make deps
@@ -11,7 +11,7 @@ all:
 	make sign-app
 	make dmg
 	make sign-dmg
-
+	make executable
 deps:
 	@which dmgbuild >/dev/null 2>&1 || { \
 		if ! command -v pipx >/dev/null 2>&1; then \
@@ -33,15 +33,22 @@ bundle:
 	cargo bundle --release
 	cp target/universal/fern-mcp-installer "$(APP_PATH)/Contents/MacOS/fern-mcp-installer"
 
-sign-app:
-ifdef SIGN_IDENTITY
-	codesign --force --deep --sign "$(SIGN_IDENTITY)" "$(APP_PATH)"
-endif
 
 dmg:
 	mkdir -p dist
 	rm -f "$(DMG_OUT)"
 	dmgbuild -s scripts/dmgbuild.py "$(APP_NAME)" "$(DMG_OUT)"
+
+executable:
+	mkdir -p dist
+	cp target/universal/fern-mcp-installer dist/fern-mcp-installer
+	chmod +x dist/fern-mcp-installer
+
+sign-app:
+ifdef SIGN_IDENTITY
+	codesign --force --deep --sign "$(SIGN_IDENTITY)" "$(APP_PATH)"
+endif
+
 
 sign-dmg:
 ifdef SIGN_IDENTITY
