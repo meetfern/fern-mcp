@@ -33,4 +33,4 @@ jobs:
         with:
           files: |
             dist/fern-mcp-installer.dmg
-            dist/bin/fern-mcp-installer
+            dist/fern-mcp-installer
