@@ -2,23 +2,19 @@
 
 ## Download
 
-You can download the latest installer from the releases page:
+You can download the latest installer for MacOS from the releases page:
 
 https://github.com/meetfern/fern-mcp/releases
 
 ## Terminal Installation
 
-You can install Fern MCP directly from the terminal using the following command:
+Alternatively, you can run the installer from the terminal with the command:
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/meetfern/fern-mcp/main/scripts/install.sh | bash
 ```
 
-## Running the Installer
-
-- Open the downloaded `.dmg`
-- Open the installer app
-- Currently the app is unsigned so it needs to be enabled via system preferences
+## Features
 
 The installer:
 
@@ -27,14 +23,16 @@ The installer:
 - Updates the `Library/Application Support/Claude/claude_desktop_config.json`
 - Displays a success dialog box
 
-## Building locally
+## Development
 
 ### Prerequisites
 
 - Install Rust (`brew install rustup` and `rustup-init`)
 - Install `cargo-bundle` (`cargo install cargo-bundle`)
 
-### Build
+### Compile
+
+Run:
 
 ```sh
 make
@@ -48,9 +46,3 @@ This will:
 - Sign the `.dmg` (ad-hoc)
 
 Final output: `dist/fern-mcp-installer.dmg`
-
-### Cleaning Build Artifacts
-
-```sh
-make clean
-```
